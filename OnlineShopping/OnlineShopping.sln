@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping", "OnlineShopping.csproj", "{6B114FED-E0F4-4260-8A3A-9318D1E460B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWebService", "..\QuizWebService\QuizWebService.csproj", "{8A3F76DA-33BA-4766-96EA-6BF46B182FD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B114FED-E0F4-4260-8A3A-9318D1E460B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B114FED-E0F4-4260-8A3A-9318D1E460B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B114FED-E0F4-4260-8A3A-9318D1E460B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B114FED-E0F4-4260-8A3A-9318D1E460B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3F76DA-33BA-4766-96EA-6BF46B182FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3F76DA-33BA-4766-96EA-6BF46B182FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3F76DA-33BA-4766-96EA-6BF46B182FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3F76DA-33BA-4766-96EA-6BF46B182FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78EFF3EF-7F44-4D8C-9A5B-E0AF514B0DA8}
+	EndGlobalSection
+EndGlobal
