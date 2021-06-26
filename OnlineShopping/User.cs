@@ -17,9 +17,9 @@ namespace OnlineShopping
             string username;
             while(loginTries < 5)
             {
-                Console.WriteLine("Enter Username: ");
+                Console.Write("Enter Username: ");
                 username = Console.ReadLine().ToLower();
-                Console.WriteLine("Enter Password: ");
+                Console.Write("Enter Password: ");
                 password = Console.ReadLine().ToLower();
 
                 if (SqlData.VerifyUser(username, password) == true)

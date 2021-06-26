@@ -11,11 +11,7 @@ namespace OnlineShopping
     {
         static string connString = "datasource = localhost; username = root; password = ;database = online_shopping";
         private static MySqlConnection conn = new MySqlConnection(connString);
-        public void connectDB()
-        {
-            
-            
-        }
+        
         static public string DisplayName(string category)
         {
             string query = $"SELECT `category` FROM `availableproducts` WHERE category = \"{category}\" ";

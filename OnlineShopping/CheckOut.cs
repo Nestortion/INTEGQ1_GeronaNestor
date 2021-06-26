@@ -39,5 +39,16 @@ namespace OnlineShopping
             }
 
         }
+        static public bool IfCanCheckOut(int orderQuantity)
+        {
+            if (orderQuantity==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

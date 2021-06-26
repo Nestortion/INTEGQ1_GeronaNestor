@@ -133,7 +133,7 @@ namespace OnlineShopping
                 default:
                     break;
             }
-            Console.WriteLine("\nEnter 1 or 2 to select a brand and proceed to order: ");
+            Console.Write("\nEnter 1 or 2 to select a brand and proceed to order o 0 to go back:");
             switch (Console.ReadLine().ToLower())
             {
                 case "1":
@@ -158,14 +158,11 @@ namespace OnlineShopping
             Console.WriteLine("Here are the details of this item:\n");
             Console.WriteLine($"Name: {productName}");
             Console.WriteLine($"Price: {SqlData.DisplayPrice(category,brand)}");
-            Console.Write("\nEnter 1 to add to cart or 2 to buy now: ");
+            Console.Write("\nEnter 1 to add to cart or 0 to go back: ");
             switch (Console.ReadLine().ToLower())
             {
                 case "1":
                     AddToCart();
-                    break;
-                case "2":
-                    OrderMenu(2);
                     break;
                 case "0":
                     SecondMenu(categChoice);
@@ -186,25 +183,37 @@ namespace OnlineShopping
                 order.DisplayCart();
 
 
-                Console.WriteLine("Enter 1 to check out or 2 to add another product or 3 to delete a product: ");
+                Console.Write("Enter 1 to check out or 2 to add another product or 3 to delete a product: ");
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        running = false;
-                        User.Login();
+                        if (CheckOut.IfCanCheckOut(order.orderTotal) == false)
+                        {
+                            running = true;
+                            Console.Write("Cart is Empty");
+                            for (int i = 3; i > 0; i--)
+                            {
+                                Console.Write(" .");
+                                Thread.Sleep(1000);
+                            }
+                        }
+                        else
+                        {
+                            running = false;
+                            User.Login();
+                        }
+                        
                         break;
                     case "2":
                         running = false;
                         StartMenu();
                         break;
                     case "3":
-                        Console.WriteLine("Enter the product name to delete: ");
-                        string name = Console.ReadLine().ToLower();
-                        order.DeleteOrderItem(name);
+                        DeleteItem();
                         break;
 
                     default:
-                        Console.WriteLine("Error Try again in ");
+                        Console.Write("Error Try again in ");
                         for (int i = 3; i > 0; i--)
                         {
                             Console.Write(" .");
@@ -215,8 +224,12 @@ namespace OnlineShopping
             } while (running);
             
         }
-        
-        
+        public static void DeleteItem()
+        {
+            Console.Write("Enter the product name to delete: ");
+            string name = Console.ReadLine().ToLower();
+            order.DeleteOrderItem(name);
+        }
         
         
         

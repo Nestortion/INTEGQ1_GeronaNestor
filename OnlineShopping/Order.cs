@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace OnlineShopping
 {
@@ -66,21 +66,33 @@ namespace OnlineShopping
         public void AddOrderItem(Product item)
         {
             orderProductList.Add(item);
+            orderTotal += item.quantity;
         }
         
         public void DeleteOrderItem(string itemName)
         {
             foreach (Product p in orderProductList.ToList())
             {
-                if (p.name == itemName)
+                if (p.name.ToLower() == itemName)
                 {
+                    orderTotal -= p.quantity;
                     if (orderProductList.Remove(p) == true)
                     {
-                        Console.WriteLine("Item deleted");
+                        Console.Write("Item deleted");
+                        for (int i = 3; i > 0; i--)
+                        {
+                            Console.Write(" .");
+                            Thread.Sleep(1000);
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Item does not exist");
+                        Console.Write("Item does not exist");
+                        for (int i = 3; i > 0; i--)
+                        {
+                            Console.Write(" .");
+                            Thread.Sleep(1000);
+                        }
                     }
                 }
             }
@@ -126,6 +138,7 @@ namespace OnlineShopping
                 orderPrice += q.price * q.quantity;
             }
         }
+        
        
 
     }
