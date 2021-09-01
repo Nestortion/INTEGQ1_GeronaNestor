@@ -26,30 +26,30 @@ namespace QuizWebService
         [WebMethod]
         public void addItemToOrder(string name, int price, int quantity)
         {
-            OnlineShopping.Product product = new OnlineShopping.Product(name, price, quantity);
+            BusinessLayer.Product product = new BusinessLayer.Product(name, price, quantity);
         }
         
         [WebMethod]
         public bool UpdateCredits(int newamount,string username)
         {
             
-            return OnlineShopping.SqlData.UpdateCredits(newamount,username);
+            return DataLayer.SqlData.UpdateCredits(newamount,username);
         }
         [WebMethod]
         public int DisplayStocks(string category, string brand)
         {
-            int stocks = OnlineShopping.SqlData.DisplayStocks(category, brand);
+            int stocks = DataLayer.SqlData.DisplayStocks(category, brand);
             return stocks;
         }
         [WebMethod]
         public bool VerifyUser(string username, string password)
         {
-            return OnlineShopping.SqlData.VerifyUser(username, password);
+            return DataLayer.SqlData.VerifyUser(username, password);
         }
         [WebMethod]
         public int DisplayPrice(string category, string brand)
         {
-            return OnlineShopping.SqlData.DisplayPrice(category, brand);
+            return DataLayer.SqlData.DisplayPrice(category, brand);
         }
     }
 }

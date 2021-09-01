@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace OnlineShopping
+namespace DataLayer
 {
     public class SqlData
     {
+        static public string username;
+        static public int credits;
         static string connString = "datasource = localhost; username = root; password = ;database = online_shopping";
         private static MySqlConnection conn = new MySqlConnection(connString);
         
@@ -68,8 +70,8 @@ namespace OnlineShopping
             if (rdr.Read())
             {
                 
-                CheckOut.username = rdr[0].ToString();
-                CheckOut.credits = Convert.ToInt32(rdr[2]);
+                username = rdr[0].ToString();
+                credits = Convert.ToInt32(rdr[2]);
                 conn.Close();
                 return true;
 

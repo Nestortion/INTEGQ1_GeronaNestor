@@ -40,3 +40,9 @@ C:\Users\geron\source\repos\Quiz\OnlineShopping\obj\Debug\OnlineShopping.csproj.
 C:\Users\geron\source\repos\Quiz\OnlineShopping\obj\Debug\OnlineShopping.csproj.CopyComplete
 C:\Users\geron\source\repos\Quiz\OnlineShopping\obj\Debug\OnlineShopping.exe
 C:\Users\geron\source\repos\Quiz\OnlineShopping\obj\Debug\OnlineShopping.pdb
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\BusinessLayer.dll
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\DataLayer.dll
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\BusinessLayer.pdb
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\BusinessLayer.dll.config
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\DataLayer.pdb
+C:\Users\geron\source\repos\Quiz\OnlineShopping\bin\Debug\DataLayer.dll.config

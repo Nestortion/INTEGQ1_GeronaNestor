@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace OnlineShopping
+namespace BusinessLayer
 {
-    enum AvailableProducts
+    public enum AvailableProducts
     {
         PowerSupply = 1,
         MotherBoard,
@@ -14,37 +14,37 @@ namespace OnlineShopping
         Ram,
         Storage
     }
-    enum PowerSupplyBrands
+    public enum PowerSupplyBrands
     {
         //The values here will be the price
         Corsair = 100,
         Seasonic = 130
     }
-    enum ProcessorBrands
+    public enum ProcessorBrands
     {
         //The values here will be the price
         Intel = 500,
         AMD = 450
     }
-    enum MotherboardBrands
+    public enum MotherboardBrands
     {
         //The values here will be the price
         Gigabyte = 320,
         Asus = 300
     }
-    enum RamBrands
+    public enum RamBrands
     {
         //The values here will be the price
         Kingston = 40,
         Corsair = 50
     }
-    enum StorageBrands
+    public enum StorageBrands
     {
         //The values here will be the price
         WD = 100,
         Seagate = 110
     }
-    class Order
+    public class Order
     {
         private List<Product> orderProductList = new List<Product>();
         private int _orderTotal = 0;
@@ -127,7 +127,7 @@ namespace OnlineShopping
                     }
                     Console.WriteLine(product.price);
                 }
-                ComputeTotalPrice(ConsoleUI.order.orderProductList);
+                ComputeTotalPrice(CheckOut.order.orderProductList);
                 Console.WriteLine($"Total price: {orderPrice}");
         }
         private void ComputeTotalPrice(List<Product> orderList)

@@ -4,20 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineShopping
+namespace BusinessLayer
 {
-    class CheckOut
+    public class CheckOut
     {
-        static public string username;
-        static public int credits;
 
+        public static Order order = new Order();
 
         static public void Payment()
         {
             Console.Clear();
-            Console.WriteLine($"User: {username}");
-            Console.WriteLine($"Credits: {credits}");
-            Console.WriteLine($"Total price: {ConsoleUI.order.orderPrice}");
+            Console.WriteLine($"User: {DataLayer.SqlData.username}");
+            Console.WriteLine($"Credits: {DataLayer.SqlData.credits}");
+            Console.WriteLine($"Total price: {order.orderPrice}");
 
             Console.WriteLine("Press any key to continue");
             
@@ -29,7 +28,7 @@ namespace OnlineShopping
         static void TransactionAndReceipt()
         {
 
-            if (SqlData.UpdateCredits(credits - ConsoleUI.order.orderPrice, username))
+            if (DataLayer.SqlData.UpdateCredits(DataLayer.SqlData.credits - order.orderPrice, DataLayer.SqlData.username))
             {
                 Console.WriteLine("Purchase Successful! Thanks for buying");
             }

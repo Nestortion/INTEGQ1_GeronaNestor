@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace OnlineShopping
+namespace BusinessLayer
 {
-    class User
+    public class User
     {
 
         static public void Login()
@@ -22,9 +22,9 @@ namespace OnlineShopping
                 Console.Write("Enter Password: ");
                 password = Console.ReadLine().ToLower();
 
-                if (SqlData.VerifyUser(username, password) == true)
+                if (DataLayer.SqlData.VerifyUser(username, password) == true)
                 {
-                    CheckOut.Payment();
+                    BusinessLayer.CheckOut.Payment();
                     loginTries = 10;
                 }
                 else

@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace OnlineShopping
 {
-    class ConsoleUI
+    public class ConsoleUI
     {
 
         private bool running = true;
@@ -14,7 +14,7 @@ namespace OnlineShopping
         private string category;
         private string brand;
         private int categChoice;
-        public static Order order = new Order();
+        
 
         public string getCategory()
         {
@@ -36,7 +36,7 @@ namespace OnlineShopping
                 Console.WriteLine("Welcome to Pre Create PC Online Shop");
                 Console.WriteLine("Here are the list of products\n");
                 Console.WriteLine("#     Category");
-                foreach (AvailableProducts s in Enum.GetValues(typeof(AvailableProducts)))
+                foreach (BusinessLayer.AvailableProducts s in Enum.GetValues(typeof(BusinessLayer.AvailableProducts)))
                 {
                     Console.WriteLine($"{(int)s}     {s}");
                 }
@@ -84,13 +84,13 @@ namespace OnlineShopping
         {
             categChoice = choice;
             Console.Clear();
-            string categ= Enum.GetName(typeof(AvailableProducts), choice);
+            string categ= Enum.GetName(typeof(BusinessLayer.AvailableProducts), choice);
             Console.WriteLine($"Here are the list of {categ} brands\n");
             Console.WriteLine("     Price  Brand");
             switch (choice)
             {
                 case 1:
-                    foreach (PowerSupplyBrands p in Enum.GetValues(typeof(PowerSupplyBrands)))
+                    foreach (BusinessLayer.PowerSupplyBrands p in Enum.GetValues(typeof(BusinessLayer.PowerSupplyBrands)))
                     {
                         Console.WriteLine($"     ${(int)p}   {p}");
                         category = categ;
@@ -98,7 +98,7 @@ namespace OnlineShopping
                     }
                     break;
                 case 2:
-                    foreach (MotherboardBrands p in Enum.GetValues(typeof(MotherboardBrands)))
+                    foreach (BusinessLayer.MotherboardBrands p in Enum.GetValues(typeof(BusinessLayer.MotherboardBrands)))
                     {
                         Console.WriteLine($"     ${(int)p}   {p}");
                         category = categ;
@@ -106,7 +106,7 @@ namespace OnlineShopping
                     }
                     break;
                 case 3:
-                    foreach (ProcessorBrands p in Enum.GetValues(typeof(ProcessorBrands)))
+                    foreach (BusinessLayer.ProcessorBrands p in Enum.GetValues(typeof(BusinessLayer.ProcessorBrands)))
                     {
                         Console.WriteLine($"     ${(int)p}   {p}");
                         category = categ;
@@ -114,7 +114,7 @@ namespace OnlineShopping
                     }
                     break;
                 case 4:
-                    foreach (RamBrands p in Enum.GetValues(typeof(RamBrands)))
+                    foreach (BusinessLayer.RamBrands p in Enum.GetValues(typeof(BusinessLayer.RamBrands)))
                     {
                         Console.WriteLine($"     ${(int)p}   {p}");
                         category = categ;
@@ -122,7 +122,7 @@ namespace OnlineShopping
                     }
                     break;
                 case 5:
-                    foreach (StorageBrands p in Enum.GetValues(typeof(StorageBrands)))
+                    foreach (BusinessLayer.StorageBrands p in Enum.GetValues(typeof(BusinessLayer.StorageBrands)))
                     {
                         Console.WriteLine($"     ${(int)p}   {p}");
                         category = categ;
@@ -157,7 +157,7 @@ namespace OnlineShopping
             Console.Clear();
             Console.WriteLine("Here are the details of this item:\n");
             Console.WriteLine($"Name: {productName}");
-            Console.WriteLine($"Price: {SqlData.DisplayPrice(category,brand)}");
+            Console.WriteLine($"Price: {DataLayer.SqlData.DisplayPrice(category,brand)}");
             Console.Write("\nEnter 1 to add to cart or 0 to go back: ");
             switch (Console.ReadLine().ToLower())
             {
@@ -176,18 +176,18 @@ namespace OnlineShopping
             bool running = true;
             Console.WriteLine("Enter Product Quantity: ");
             var quantity = Console.ReadLine();
-            order.AddOrderItem(new Product(productName.ToString(), SqlData.DisplayPrice(category, brand), Convert.ToInt32(quantity)));
+            BusinessLayer.CheckOut.order.AddOrderItem(new BusinessLayer.Product(productName.ToString(), DataLayer.SqlData.DisplayPrice(category, brand), Convert.ToInt32(quantity)));
             do
             {
                 Console.Clear();
-                order.DisplayCart();
+                BusinessLayer.CheckOut.order.DisplayCart();
 
 
                 Console.Write("Enter 1 to check out or 2 to add another product or 3 to delete a product: ");
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        if (CheckOut.IfCanCheckOut(order.orderTotal) == false)
+                        if (BusinessLayer.CheckOut.IfCanCheckOut(BusinessLayer.CheckOut.order.orderTotal) == false)
                         {
                             running = true;
                             Console.Write("Cart is Empty");
@@ -200,7 +200,7 @@ namespace OnlineShopping
                         else
                         {
                             running = false;
-                            User.Login();
+                            BusinessLayer.User.Login();
                         }
                         
                         break;
@@ -228,7 +228,7 @@ namespace OnlineShopping
         {
             Console.Write("Enter the product name to delete: ");
             string name = Console.ReadLine().ToLower();
-            order.DeleteOrderItem(name);
+            BusinessLayer.CheckOut.order.DeleteOrderItem(name);
         }
         
         

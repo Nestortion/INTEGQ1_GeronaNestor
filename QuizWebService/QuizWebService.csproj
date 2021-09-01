@@ -87,6 +87,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{13e3534f-3e7d-4f28-b36f-4d189093314a}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{35d45fd4-d7a0-4fbf-91d0-1a53dbd1ed73}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnlineShopping\OnlineShopping.csproj">
       <Project>{6b114fed-e0f4-4260-8a3a-9318d1e460b1}</Project>
       <Name>OnlineShopping</Name>
